@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCBartender.Models.Cocktail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cocktail Menu</h2>
+@foreach (var item in Model)
+{
+   <div style="display:inline-block">
+        <div style="width:40%; float:left;margin-right: 35px;">
+            <img src="@item.Image" width="125" height="155" alt="@item.CocktailName" title="@item.CocktailName" />
+        </div>
+        <div style="width:70%; float:left;margin-left:auto;">
+            <h3>
+                @Html.DisplayFor(modelItem => item.CocktailName)
+            </h3>
+            <p>
+                @Html.DisplayFor(modelItem => item.Description)
+            </p>
+            <p>
+                $@Html.DisplayFor(modelItem => item.Price)
+            </p>
+           
+            @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+            {
+                <div class="pull-right">
+                    @Html.HiddenFor(modelItem => item.CocktailID)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input type="submit" class="btn btn-success" value="Add to cart" />
+                </div>
+            }
+        </div>
+       </div>
+}
