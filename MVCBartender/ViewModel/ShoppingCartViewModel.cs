@@ -9,7 +9,7 @@ namespace MVCBartender.Models
     public class ShoppingCartViewModel
     {
        [Key]
-
+       public int CartID { get; set; }
        public List<Cart> CartItems { get; set; }
        public decimal CartTotal { get; set; }
     }

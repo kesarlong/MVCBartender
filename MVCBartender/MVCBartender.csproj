@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201609062122288_Update-database.Designer.cs">
       <DependentUpon>201609062122288_Update-database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609070237581_update.cs" />
+    <Compile Include="Migrations\201609070237581_update.Designer.cs">
+      <DependentUpon>201609070237581_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cart.cs" />
@@ -304,10 +308,10 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -323,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609062122288_Update-database.resx">
       <DependentUpon>201609062122288_Update-database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609070237581_update.resx">
+      <DependentUpon>201609070237581_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
