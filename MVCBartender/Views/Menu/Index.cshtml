@@ -25,12 +25,10 @@
            
             @using (Html.BeginForm("AddToCart", "ShoppingCart"))
             {
-                <div class="pull-right">
-                    @Html.HiddenFor(modelItem => item.CocktailID)
-                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                    <input type="submit" class="btn btn-success" value="Add to cart" />
-                </div>
-               
+            
+                <p class="button">
+                    @Html.ActionLink("Add to cart", "AddToCart", "ShoppingCart", new { id = item.CocktailID }, "")
+                </p>
             }
         </div>
        </div>
