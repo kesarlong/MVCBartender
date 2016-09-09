@@ -9,10 +9,10 @@
         // Document.ready -> link up remove event handler
         $(".RemoveLink").click(function () {
             // Get the id from the link
-            var recordToDelete = $(this).attr("data-id");
+            var recordToDelete = $(this).attr("RecordID");
             if (recordToDelete != '') {
                 // Perform the ajax post
-                $.post("/ShoppingCart/RemoveFromCart", {"id": recordToDelete },
+                $.post("/ShoppingCart/RemoveFromCart", {"RecordID": recordToDelete },
                     function (data) {
                         // Successful requests get here
                         // Update the page elements
@@ -35,7 +35,7 @@
 
 <div id="update-message">
 </div>
-<table>
+<table class="table-bordered">
     <tr>
         <th>
             Cocktail
@@ -46,29 +46,22 @@
         <th>
             Quantity
         </th>
-        <th></th>
+       
     </tr>
     @foreach (var item in
         Model.CartItems)
     {
         <tr id="row-@item.RecordID">
             <td>
-                @Html.ActionLink(item.CartID,
-"Index", "Menu", new { id = item.CocktailID }, null)
-            </td>
+                @item.Cocktail.CocktailName 
+            </td>   
             <td>
                 @item.Cocktail.Price
             </td>
+          
             <td id="item-count-@item.RecordID">
                 @item.Count
-            </td>
-            <td>
-                <a href="#" class="RemoveLink"
-                   data-id="@item.RecordID">
-                    Remove
-                    from cart
-                </a>
-            </td>
+            </td>      
         </tr>
     }
     <tr>
@@ -76,7 +69,7 @@
             Total
         </td>
         <td></td>
-        <td></td>
+       
         <td id="cart-total">
             @Model.CartTotal
         </td>

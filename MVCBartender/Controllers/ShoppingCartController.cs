@@ -27,7 +27,7 @@ namespace MVCBartender.Controllers
             return View(viewModel);
         }
         //
-        // GET: /Store/AddToCart/5
+        // GET: /AddToCart/5
         public ActionResult AddToCart(int id)
         {
             // Retrieve the cocktail from the database
